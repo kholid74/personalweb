@@ -1,0 +1,144 @@
+---
+const experiences = [
+  {
+    company: 'Salt (PT. Ako Media Asia)',
+    role: 'Backend Developer',
+    period: 'April 2020 – Present',
+    location: 'Jakarta, Indonesia',
+    current: true,
+    description: [
+      'Contributed to multiple large-scale projects for Telkomsel (Indonesia\'s leading telecom company) and enterprise clients, building high-availability APIs, CMSs, and event-driven systems.',
+      'Delivered backend solutions across streaming, survey, campaign, and digital hub platforms using Golang, PHP, and Node.js.',
+    ],
+    projects: [
+      { name: 'Maxstream', url: 'https://maxstream.tv', tech: 'PHP · Node.js · Golang' },
+      { name: 'HMS', url: null, tech: 'Golang · RabbitMQ · Firebase' },
+      { name: 'TSurvey', url: 'https://tsurvey.id', tech: 'Golang' },
+      { name: 'Patricia', url: 'https://patricia.co.id', tech: 'Golang' },
+      { name: 'DigiHub', url: 'https://digihub.telkomsel.co.id', tech: 'PHP' },
+      { name: 'Cascade', url: null, tech: 'Golang' },
+      { name: 'CROX', url: null, tech: 'Golang' },
+    ],
+  },
+  {
+    company: 'AntaVaya Group',
+    role: 'Backend Developer',
+    period: 'August 2019 – February 2020',
+    location: 'Jakarta, Indonesia',
+    current: false,
+    description: [
+      'Developed and maintained the Tour Management System (TMS), delivering feature enhancements, bug fixes, and performance improvements for a B2B travel management platform.',
+    ],
+    projects: [],
+  },
+  {
+    company: 'Cranium Royal Aditama (Onsite at Futuready)',
+    role: 'Backend Developer',
+    period: 'January 2019 – June 2019',
+    location: 'Jakarta, Indonesia',
+    current: false,
+    description: [
+      'Built RESTful APIs and integrated with multiple insurance provider systems.',
+      'Developed new modules and maintained internal applications for an insurtech platform.',
+    ],
+    projects: [],
+  },
+  {
+    company: 'Essentials! Digital Media',
+    role: 'Web Developer',
+    period: 'January 2016 – September 2018',
+    location: 'Jakarta, Indonesia',
+    current: false,
+    description: [
+      'Developed, tested, and deployed client websites and web-based applications.',
+      'Maintained legacy systems and resolved production bugs to ensure uptime and stability.',
+      'Created technical documentation and delivered client training sessions.',
+    ],
+    projects: [],
+  },
+];
+---
+
+<section id="experience" class="py-24 bg-zinc-900/40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-3">Career</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Work Experience</h2>
+    </div>
+
+    <div class="relative">
+      <!-- Timeline vertical line -->
+      <div class="absolute left-4 md:left-6 top-2 bottom-2 w-px bg-zinc-800"></div>
+
+      <div class="space-y-10">
+        {experiences.map(exp => (
+          <div class="relative flex gap-8 md:gap-10">
+            <!-- Timeline dot -->
+            <div class="relative flex-shrink-0">
+              <div class={`w-9 h-9 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center z-10 relative ${exp.current ? 'border-cyan-400 bg-cyan-400/10' : 'border-zinc-700 bg-zinc-900'}`}>
+                <div class={`w-2.5 h-2.5 rounded-full ${exp.current ? 'bg-cyan-400' : 'bg-zinc-600'}`}></div>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1 pb-2">
+              <div class="bg-zinc-800/40 border border-zinc-700/50 rounded-xl p-6 hover:border-zinc-600 transition-colors">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                  <div>
+                    <h3 class="text-white font-semibold text-lg leading-tight">{exp.role}</h3>
+                    <p class="text-cyan-400 font-medium mt-0.5">{exp.company}</p>
+                  </div>
+                  {exp.current && (
+                    <span class="shrink-0 text-xs bg-cyan-400/10 text-cyan-400 border border-cyan-400/25 rounded-full px-3 py-1 font-medium">
+                      Current
+                    </span>
+                  )}
+                </div>
+
+                <p class="text-zinc-500 text-sm mb-4">
+                  📍 {exp.location} &nbsp;·&nbsp; 🗓 {exp.period}
+                </p>
+
+                <ul class="space-y-2 mb-4">
+                  {exp.description.map(desc => (
+                    <li class="text-zinc-400 text-sm leading-relaxed flex gap-2.5">
+                      <span class="text-cyan-400 mt-0.5 shrink-0 font-bold">›</span>
+                      <span>{desc}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {exp.projects.length > 0 && (
+                  <div class="pt-3 border-t border-zinc-700/50">
+                    <p class="text-zinc-500 text-xs uppercase tracking-wider mb-2.5 font-semibold">
+                      Projects at this role
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                      {exp.projects.map(proj => (
+                        <span class="inline-flex items-center gap-1.5 text-xs bg-zinc-700/50 text-zinc-300 rounded-md px-2.5 py-1.5 border border-zinc-600/50 hover:border-zinc-500 transition-colors">
+                          {proj.url ? (
+                            <a
+                              href={proj.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="hover:text-cyan-400 transition-colors font-medium"
+                            >
+                              {proj.name} ↗
+                            </a>
+                          ) : (
+                            <span class="font-medium">{proj.name}</span>
+                          )}
+                          <span class="text-zinc-500">· {proj.tech}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
