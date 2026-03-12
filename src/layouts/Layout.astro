@@ -8,6 +8,8 @@ const {
   title = 'Kholid Abdillah Putra — Backend Software Engineer',
   description = 'Backend Software Engineer with 8+ years of experience building scalable web applications using Golang, PHP, and Node.js. Based in Jakarta, Indonesia. Open for freelance projects.',
 } = Astro.props;
+
+const GA_ID = 'G-QFKB63G31P';
 ---
 
 <!doctype html>
@@ -15,26 +17,42 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="Kholid Abdillah Putra, Backend Developer, Software Engineer, Golang, PHP, Node.js, Jakarta, Freelance" />
+    <meta name="keywords" content="Kholid Abdillah Putra, Backend Developer, Software Engineer, Golang, PHP, Node.js, NestJS, PostgreSQL, MySQL, MongoDB, Redis, RabbitMQ, Jakarta, Freelance, API Developer, Web Developer" />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Kholid Abdillah Putra" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://kholidputra.com" />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kholidputra.com" />
-    <meta property="og:image" content="https://kholidputra.com/images/me.png" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://kholidputra.com/images/avatar.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Kholid Abdillah Putra" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://kholidputra.com" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://kholidputra.com/images/avatar.jpg" />
     <meta name="twitter:creator" content="@kholidputra_" />
 
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <title>{title}</title>
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,6 +61,15 @@ const {
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Google Analytics -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    </script>
   </head>
   <body class="bg-zinc-950 text-zinc-100 font-sans">
     <slot />
